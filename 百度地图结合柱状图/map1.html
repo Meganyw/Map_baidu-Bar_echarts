@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=你的密钥"></script><!-- 自己申请的密钥   分为浏览器端和服务端 ，这里我使用的是浏览器端的-->
+    <script type="text/javascript" src="http://api.map.baidu.com/library/AreaRestriction/1.2/src/AreaRestriction_min.js"></script>
+    <script type="text/javascript" src="js/echarts.min.js"></script>
+    <title>给多个点添加信息窗口</title>
+</head>
+<body>
+    <div class="map">
+        <div id="allmap"></div>
+        <div class="biaozhu">
+            <p><span class="marker marker_red"></span><span>健康值&lt;=60</span></p>
+            <p><span class="marker marker_yellow"></span> 60&lt;健康值&lt;=80</p>
+            <p><span class="marker marker_green"></span>80&lt;健康值&lt;=100 </p>
+        </div>
+    </div>
+    <div id="echarts1"></div>
+    <div id="echarts2"></div>
+</body>
+</html>
+<script type="text/javascript" src="js/wxzz.js"></script>
