@@ -3,8 +3,6 @@ $(function(){
         setMapEvent();
         addMapControl();
         getBoundary();
-        top_bar();
-        bottom_bar();
 })
 // 百度地图API功能
 map = new BMap.Map("allmap");
@@ -58,6 +56,8 @@ for(var i=0;i<data_info.length;i++){
         var marker2 = new BMap.Marker(pt,{icon:myIcon1});
         map.addOverlay(marker2);
     }
+    top_bar(series_data1);
+    bottom_bar(series_data2);
     addClickHandler(series_data1,series_data2,content,marker2);
 }
 
@@ -73,12 +73,13 @@ function openInfo(content,e,data,data2){
     var infoWindow = new BMap.InfoWindow(content,opts);// 创建信息窗口对象
     map.openInfoWindow(infoWindow,point); //开启信息窗口
 
-    option1.series[0].data = data;
-    Chart1.setOption(option1);
+    // option1.series[0].data = data;
+    // Chart1.setOption(option1);
 
-    option2.series[0].data = data2;
-    Chart2.setOption(option2);
-
+    // option2.series[0].data = data2;
+    // Chart2.setOption(option2);
+    top_bar(data);
+    bottom_bar(data2);
 }
 
 function setMapEvent(){
@@ -190,7 +191,7 @@ function addMapControl(){
   map.addControl(overviewControl);
 }
 
-function top_bar(){
+function top_bar(data){
     var Chart1 = echarts.init(document.getElementById('echarts1'));
     var series = [];
     var option1 = {
@@ -262,7 +263,7 @@ function top_bar(){
                         }
                     }
                 },
-                data: series_data1
+                data: data
             }
         ]
 
@@ -270,7 +271,7 @@ function top_bar(){
     Chart1.setOption(option1);
 }
 
-function bottom_bar(){
+function bottom_bar(data){
     var Chart2 = echarts.init(document.getElementById('echarts2'));
     option2 = {
         title: {
@@ -341,7 +342,7 @@ function bottom_bar(){
                         }
                     }
                 },
-                data: series_data2
+                data: data
             }
         ]
     };
